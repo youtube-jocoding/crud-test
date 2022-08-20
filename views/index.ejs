@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>목록</h1>
+    <ul>
+        <% for (d of data) { %>
+            <li><%= d.content %></li>
+            <form action="/update/<%= d.id %>" method="post">
+                <input type="text" name="content">
+                <button type="submit">수정</button>
+            </form>
+            <form action="/delete/<%= d.id %>" method="post">
+                <button type="submit">삭제</button>
+            </form>
+        <% } %>
+    </ul>
+    <hr>
+    <h1>댓글쓰기</h1>
+    <form action="/create" method="post">
+        <input type="text" name="content">
+        <button type="submit">글쓰기</button>
+    </form>
+</body>
+</html>
